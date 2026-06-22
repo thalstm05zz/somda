@@ -2,28 +2,31 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>건강 다이어리 🌸</title>
 <style>
 :root{
-  --p1:#7b5ea7;--p2:#a882cc;--p3:#c9aadf;--p4:#e6d9f5;--p5:#f6f1fe;
-  --bg:#ede8f8;--paper:#fefcff;--line:#ddd0f2;--hair:#ece5f8;
-  --ink:#3a2d52;--soft:#8a7aa0;--faint:#c4b0d9;
-  --am-c:#3a9e85;--am-bg:#eefaf6;--am-b:#b8e8da;
-  --pm-c:#4a7dc0;--pm-bg:#edf3fc;--pm-b:#b8d2f0;
+  --p1:#c94d5a;--p2:#e0777f;--p3:#f0adb5;--p4:#fce4e7;--p5:#fff7f8;
+  --g1:#4a8a5d;--g2:#6daa80;--g3:#a8d4b4;--g4:#e4f4ea;
+  --bg:#f8f4ef;--paper:#fffefb;--line:#f0d5d8;--hair:#f5e8ea;
+  --ink:#3d2428;--soft:#8a6065;--faint:#cba0a5;
+  --am-c:#4a8a5d;--am-bg:#eef7f1;--am-b:#a8d4b4;
+  --pm-c:#c94d5a;--pm-bg:#fceef0;--pm-b:#f0adb5;
   --r:16px;--r2:12px;--r3:24px;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-serif;background:var(--bg);color:var(--ink);padding:16px 12px 72px;font-size:14px;line-height:1.5;}
+body{font-family:'Nanum Gothic','Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:var(--bg);color:var(--ink);padding:16px 12px 72px;font-size:14px;line-height:1.5;}
 .wrap{max-width:860px;margin:0 auto;}
 
 /* appbar */
 .appbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px;}
-.brand{font-size:20px;font-weight:900;color:var(--p1);letter-spacing:-.5px;}
+.brand{font-size:20px;font-weight:800;color:var(--p1);letter-spacing:-.3px;font-family:'Nanum Myeongjo',serif;}
 .brand sub{font-size:12px;font-weight:500;color:var(--soft);margin-left:6px;}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;}
-.tab{padding:8px 16px;border:1.5px solid var(--p3);background:var(--paper);border-radius:var(--r3);cursor:pointer;color:var(--soft);font-size:13px;font-weight:700;transition:all .18s;}
-.tab.active{background:var(--p1);color:#fff;border-color:var(--p1);box-shadow:0 4px 14px rgba(123,94,167,.35);}
+.tab{padding:8px 16px;border:1.5px solid var(--p3);background:var(--paper);border-radius:var(--r3);cursor:pointer;color:var(--soft);font-size:13px;font-weight:400;transition:all .18s;}
+.tab.active{background:var(--p1);color:#fff;border-color:var(--p1);box-shadow:0 3px 10px rgba(201,77,90,.25);}
 .navrow{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
 .navbtn{width:36px;height:36px;border:1.5px solid var(--p3);background:var(--paper);border-radius:50%;cursor:pointer;color:var(--p1);font-size:18px;transition:background .15s;}
 .navbtn:hover{background:var(--p4);}
@@ -31,17 +34,13 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 .todaybtn{padding:0 16px;height:36px;border:1.5px solid var(--p3);background:var(--paper);border-radius:var(--r3);cursor:pointer;font:inherit;font-size:12px;color:var(--p1);font-weight:700;}
 
 /* card */
-.card{background:var(--paper);border-radius:var(--r);box-shadow:0 2px 0 rgba(123,94,167,.07),0 14px 36px rgba(123,94,167,.12);padding:22px;}
+.card{background:var(--paper);border-radius:var(--r);box-shadow:0 2px 0 rgba(201,77,90,.05),0 12px 30px rgba(201,77,90,.09);padding:22px;overflow:hidden;}
+.card::before{content:'';display:block;height:5px;background:linear-gradient(90deg,var(--g1) 0%,var(--g2) 30%,var(--p2) 60%,var(--p1) 100%);border-radius:0;margin:-22px -22px 18px -22px;}
 
 /* decorative strip */
-.deco{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:2px dashed var(--p4);margin-bottom:16px;}
-.deco-date{font-size:13px;font-weight:800;color:var(--soft);letter-spacing:.04em;}
-.deco-stickers{display:flex;gap:6px;font-size:18px;}
-.deco-stickers span{display:inline-block;animation:bob 2.8s ease-in-out infinite;}
-.deco-stickers span:nth-child(2){animation-delay:.5s;}
-.deco-stickers span:nth-child(3){animation-delay:1s;}
-.deco-stickers span:nth-child(4){animation-delay:1.5s;}
-@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.deco{display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--hair);margin-bottom:16px;}
+.deco-date{font-size:13px;font-weight:800;color:var(--soft);letter-spacing:.02em;}
+.deco-stickers{font-size:16px;color:var(--p1);}
 
 /* weight row */
 .wrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
@@ -60,7 +59,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 .icell{padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--hair);}
 .icell:nth-child(odd){border-right:1px solid var(--hair);}
 .icell.full{grid-column:1/-1;border-right:none;border-bottom:none;}
-.ilab{font-size:11px;color:var(--soft);white-space:nowrap;font-weight:700;}
+.ilab{font-size:11px;color:var(--soft);white-space:nowrap;font-weight:400;}
 .ipt{border:none;outline:none;font:inherit;color:var(--ink);background:transparent;font-size:13px;width:100%;}
 .ipt::placeholder{color:var(--faint);}
 .faces{display:flex;gap:6px;margin-left:auto;}
@@ -73,9 +72,9 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 .body{display:grid;grid-template-columns:1fr 1.25fr;gap:0;}
 .colL{border-right:2px solid var(--hair);padding-right:20px;}
 .colR{padding-left:20px;}
-.sh{font-size:11.5px;font-weight:900;letter-spacing:.1em;color:var(--p1);padding:14px 0 8px;border-bottom:2px dashed var(--p4);margin-bottom:2px;display:flex;align-items:center;gap:5px;}
+.sh{font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--p1);padding:12px 0 8px;border-bottom:1px solid var(--hair);margin-bottom:2px;display:flex;align-items:center;gap:6px;}
 .row{display:flex;align-items:center;gap:8px;padding:9px 2px;border-bottom:1px solid var(--hair);}
-.rlab{font-size:12px;color:var(--soft);width:72px;font-weight:700;}
+.rlab{font-size:12px;color:var(--soft);width:72px;font-weight:400;}
 .ript{border:none;outline:none;font:inherit;font-size:13px;color:var(--ink);width:100%;background:transparent;}
 .stotal{font-size:13px;color:var(--p2);font-weight:800;}
 .stotal-hint{font-size:10px;color:var(--faint);margin-left:4px;}
@@ -91,7 +90,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 /* meals */
 .meal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-top:8px;}
 .mcell{border:1.5px solid var(--hair);border-radius:10px;overflow:hidden;background:var(--p5);}
-.mcell-head{background:var(--p4);padding:6px 10px;font-size:11px;font-weight:800;color:var(--p1);letter-spacing:.05em;}
+.mcell-head{background:var(--hair);padding:6px 10px;font-size:12px;font-weight:800;color:var(--p1);letter-spacing:.02em;}
 .mcell textarea{width:100%;border:none;outline:none;resize:none;font:inherit;font-size:12.5px;padding:8px 10px;height:62px;background:transparent;color:var(--ink);}
 .mcell textarea::placeholder{color:var(--faint);}
 .kcalrow{display:flex;align-items:center;justify-content:flex-end;gap:6px;padding:6px 4px 0;font-size:11px;color:var(--soft);font-weight:700;}
@@ -101,7 +100,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 .ex-grid{display:flex;flex-wrap:wrap;gap:8px;padding-top:10px;}
 .exbtn{padding:8px 14px;border:2px solid var(--p3);background:var(--paper);border-radius:var(--r3);cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;color:var(--soft);transition:all .18s;}
 .exbtn:hover{background:var(--p4);border-color:var(--p2);}
-.exbtn.on{background:var(--p1);color:#fff;border-color:var(--p1);box-shadow:0 3px 10px rgba(123,94,167,.35);}
+.exbtn.on{background:var(--p1);color:#fff;border-color:var(--p1);box-shadow:0 2px 8px rgba(201,77,90,.25);}
 .ex-note{display:none;}
 .ex-detail-list{margin-top:8px;display:flex;flex-direction:column;gap:6px;}
 .ex-detail-row{display:flex;align-items:center;gap:10px;background:var(--p5);border:1.5px solid var(--p4);border-radius:10px;padding:9px 14px;animation:fadeIn .18s ease;}
@@ -112,7 +111,8 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 .savedot{font-size:11px;color:var(--faint);text-align:right;margin-top:14px;}
 
 /* ── CALENDAR ── */
-.cal-wrap{padding:22px;}
+.cal-wrap{padding:22px;overflow:hidden;}
+.cal-wrap::before{content:'';display:block;height:5px;background:linear-gradient(90deg,var(--g1),var(--g2),var(--p2),var(--p1));margin:-22px -22px 18px -22px;border-radius:0;}
 .cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
 .cal-month-label{font-size:18px;font-weight:900;color:var(--p1);}
 .cal-nav{display:flex;gap:8px;}
@@ -139,7 +139,8 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 .cal-loading{text-align:center;color:var(--faint);padding:40px 0;font-size:13px;}
 
 /* ── CHART ── */
-.chartwrap{padding:24px;}
+.chartwrap{padding:24px;overflow:hidden;}
+.chartwrap::before{content:'';display:block;height:5px;background:linear-gradient(90deg,var(--g1),var(--g2),var(--p2),var(--p1));margin:-24px -24px 18px -24px;border-radius:0;}
 .charthead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px;}
 .chart-title{font-size:15px;font-weight:900;color:var(--p1);}
 .legend{display:flex;gap:14px;}
@@ -155,10 +156,13 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 .htable td.d{color:var(--soft);}
 .htable tbody tr:hover{background:var(--p5);}
 
+
+.wrap{position:relative;z-index:1;}
+
 @media(max-width:660px){
   .card,.cal-wrap,.chartwrap{padding:16px 14px;}
   .body{grid-template-columns:1fr;}
-  .colL{border-right:none;padding-right:0;padding-bottom:16px;border-bottom:2px dashed var(--p4);margin-bottom:8px;}
+  .colL{border-right:none;padding-right:0;padding-bottom:16px;border-bottom:1px solid var(--hair);margin-bottom:8px;}
   .colR{padding-left:0;}
   .infoblock{grid-template-columns:1fr;}
   .icell:nth-child(odd){border-right:none;}
@@ -169,7 +173,7 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
 <body>
 <div class="wrap">
   <div class="appbar">
-    <div class="brand">🌿 건강 다이어리<sub>by 솜</sub></div>
+    <div class="brand">🍉 건강 다이어리<sub>by 솜</sub></div>
     <div class="tabs">
       <button class="tab active" id="tabDay">✏️ 일일 기록</button>
       <button class="tab" id="tabCal">📅 캘린더</button>
@@ -189,17 +193,17 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
       <div class="deco">
         <div class="deco-date" id="dateLabel"></div>
         <div class="deco-stickers">
-          <span>🌸</span><span>✨</span><span>💜</span><span>🎀</span>
+          🍉
         </div>
       </div>
 
       <div class="wrow">
         <div class="wcell am">
-          <div class="wlabel">🌅 아침 체중</div>
+          <div class="wlabel">🌿 아침 체중</div>
           <div class="wval"><input id="weightAM" type="number" step="0.1" placeholder="—"><span class="unit">kg</span></div>
         </div>
         <div class="wcell pm">
-          <div class="wlabel">🌆 저녁 체중</div>
+          <div class="wlabel">🍉 저녁 체중</div>
           <div class="wval"><input id="weightPM" type="number" step="0.1" placeholder="—"><span class="unit">kg</span></div>
         </div>
       </div>
@@ -226,39 +230,39 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
             <span class="stotal-hint" id="sleepHint"></span>
           </div>
 
-          <div class="sh">✨ 체크 포인트</div>
+          <div class="sh">✔ 체크 포인트</div>
           <div class="row">
             <span class="rlab">수면</span>
             <div class="pillset" data-key="sleepRate">
-              <span class="pill" data-v="bad">😴 Bad</span>
-              <span class="pill" data-v="soso">🙂 Soso</span>
-              <span class="pill" data-v="good">✨ Good!</span>
+              <span class="pill" data-v="bad">Bad</span>
+              <span class="pill" data-v="soso">Soso</span>
+              <span class="pill" data-v="good">Good!</span>
             </div>
           </div>
           <div class="row">
             <span class="rlab">화장실</span>
             <div class="pillset" data-key="toilet">
-              <span class="pill" data-v="bad">😣 Bad</span>
-              <span class="pill" data-v="soso">😊 Soso</span>
-              <span class="pill" data-v="good">🌟 Good!</span>
+              <span class="pill" data-v="bad">Bad</span>
+              <span class="pill" data-v="soso">Soso</span>
+              <span class="pill" data-v="good">Good!</span>
             </div>
           </div>
 
-          <div class="sh">✏️ 오늘의 회고</div>
+          <div class="sh">🍓 오늘의 회고</div>
           <div class="reflect"><textarea id="reflection" placeholder="오늘 어떤 하루였나요 ? ♡"></textarea></div>
         </div>
 
         <div class="colR">
-          <div class="sh">🍽️ 식사</div>
+          <div class="sh">🍉 식사</div>
           <div class="meal-grid">
-            <div class="mcell"><div class="mcell-head">🌅 아침</div><textarea id="mealAm" placeholder="아침 메뉴"></textarea></div>
-            <div class="mcell"><div class="mcell-head">☀️ 점심</div><textarea id="mealPm" placeholder="점심 메뉴"></textarea></div>
-            <div class="mcell"><div class="mcell-head">🌙 저녁</div><textarea id="mealEve" placeholder="저녁 메뉴"></textarea></div>
-            <div class="mcell"><div class="mcell-head">🍪 간식</div><textarea id="mealSnk" placeholder="간식"></textarea></div>
+            <div class="mcell"><div class="mcell-head">🍊 아침</div><textarea id="mealAm" placeholder="아침 메뉴"></textarea></div>
+            <div class="mcell"><div class="mcell-head">🍋 점심</div><textarea id="mealPm" placeholder="점심 메뉴"></textarea></div>
+            <div class="mcell"><div class="mcell-head">🍇 저녁</div><textarea id="mealEve" placeholder="저녁 메뉴"></textarea></div>
+            <div class="mcell"><div class="mcell-head">🍓 간식</div><textarea id="mealSnk" placeholder="간식"></textarea></div>
           </div>
           <div class="kcalrow">총 <input id="kcal" type="number" placeholder="0"> kcal</div>
 
-          <div class="sh" style="margin-top:10px;">🏃 운동</div>
+          <div class="sh" style="margin-top:10px;">🍊 운동</div>
           <div class="ex-grid" id="exgrid">
             <button class="exbtn" data-ex="요가">🧘 요가</button>
             <button class="exbtn" data-ex="스트레칭">🤸 스트레칭</button>
@@ -293,14 +297,14 @@ body{font-family:'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-seri
   <div id="chartView" style="display:none;">
     <div class="card chartwrap">
       <div class="charthead">
-        <div class="chart-title">📈 몸무게 변화 추이</div>
+        <div class="chart-title">🍓 몸무게 변화 추이</div>
         <div class="legend" id="legend">
           <div class="leg" data-s="weightAM"><span class="sw" style="background:var(--am-c)"></span>아침 체중</div>
           <div class="leg" data-s="weightPM"><span class="sw" style="background:var(--pm-c)"></span>저녁 체중</div>
         </div>
       </div>
       <svg id="chart" viewBox="0 0 800 280" preserveAspectRatio="none"></svg>
-      <div id="chartEmpty" class="empty" style="display:none;">아직 몸무게 기록이 없어요 🌸<br>일일 기록에서 체중을 입력하면<br>여기에 예쁜 그래프로 보여요 💜</div>
+      <div id="chartEmpty" class="empty" style="display:none;">아직 몸무게 기록이 없어요 🌸<br>일일 기록에서 체중을 입력하면<br>여기에 예쁜 그래프로 보여요 🍉</div>
       <table class="htable" id="htable">
         <thead><tr><th>날짜</th><th>🌅 아침</th><th>🌆 저녁</th></tr></thead>
         <tbody></tbody>
@@ -395,7 +399,7 @@ function save(){
   clearTimeout(saveTimer);
   saveTimer=setTimeout(async()=>{
     await Store.set(PFX+cur,JSON.stringify(data));
-    document.getElementById('saveDot').textContent='저장됨 ♡ '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
+    document.getElementById('saveDot').textContent='저장됨 🍉 '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
   },350);
 }
 function goDay(o){const d=parseYMD(cur);d.setDate(d.getDate()+o);cur=ymd(d);load();}
@@ -410,7 +414,7 @@ const MONTHS=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10
 
 async function renderCalendar(){
   const y=calMonth.getFullYear(),m=calMonth.getMonth();
-  document.getElementById('calMonthLabel').textContent=y+'년 '+MONTHS[m];
+  document.getElementById('calMonthLabel').textContent='🍉 '+y+'년 '+MONTHS[m];
   const grid=document.getElementById('calGrid');
   grid.innerHTML='';
   // day-of-week headers
@@ -529,6 +533,7 @@ document.querySelectorAll('input,textarea').forEach(el=>{
   el.setAttribute('autocapitalize','off');
   el.setAttribute('autocomplete','off');
 });
+
 
 load();
 </script>
