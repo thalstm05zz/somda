@@ -266,7 +266,7 @@ body{font-family:'Nanum Gothic','Apple SD Gothic Neo','Malgun Gothic',sans-serif
           <div class="ex-grid" id="exgrid">
             <button class="exbtn" data-ex="요가">🧘 요가</button>
             <button class="exbtn" data-ex="스트레칭">🤸 스트레칭</button>
-            <button class="exbtn" data-ex="러닝">🏃 러닝</button>
+            <button class="exbtn" data-ex="유산소">🏃 유산소</button>
             <button class="exbtn" data-ex="웨이트">🏋️ 웨이트</button>
           </div>
           <div class="ex-detail-list" id="exDetailList"></div>
@@ -327,7 +327,7 @@ const pad=n=>String(n).padStart(2,'0');
 function ymd(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
 function parseYMD(s){const[y,m,dd]=s.split('-').map(Number);return new Date(y,m-1,dd);}
 const WD=['일','월','화','수','목','금','토'];
-const EX_EMOJI={'요가':'🧘','스트레칭':'🤸','러닝':'🏃','웨이트':'🏋️'};
+const EX_EMOJI={'요가':'🧘','스트레칭':'🤸','유산소':'🏃','웨이트':'🏋️'};
 
 let cur=ymd(new Date()),data={},saveTimer=null;
 const TXT_FIELDS=['weightAM','weightPM','comment','kcal','reflection','wake','sleep','mealAm','mealPm','mealEve','mealSnk'];
@@ -365,7 +365,7 @@ document.querySelectorAll('.exbtn').forEach(b=>b.onclick=()=>{
   s.has(k)?s.delete(k):s.add(k);data.exercises=[...s];renderEx();renderExDetails();save();
 });
 function renderEx(){const s=new Set(data.exercises||[]);document.querySelectorAll('.exbtn').forEach(b=>b.classList.toggle('on',s.has(b.dataset.ex)));}
-const EX_ORDER=['요가','스트레칭','러닝','웨이트'];
+const EX_ORDER=['요가','스트레칭','유산소','웨이트'];
 function renderExDetails(){
   const sel=(data.exercises||[]);
   const details=data.exDetails||{};
